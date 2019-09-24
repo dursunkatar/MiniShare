@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,7 +59,7 @@ namespace MiniShare
         {
             if (listView.SelectedItems.Count > 0)
             {
-                MessageBox.Show("http://localhost:8085" + listView.SelectedItems[0].SubItems[1].Text);
+                MessageBox.Show($"http://{Utilities.LocalIPAddress()}:8085" + listView.SelectedItems[0].SubItems[1].Text);
             }
         }
     }
