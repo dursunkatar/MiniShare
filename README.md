@@ -1,5 +1,5 @@
 # MiniShare
-Basic a file share tools
+Basic file share tools
 
 Usage: http://localhost:8085/file.txt
 
