@@ -59,7 +59,8 @@ namespace MiniShare
         {
             if (listView.SelectedItems.Count > 0)
             {
-                MessageBox.Show($"http://{Utilities.LocalIPAddress()}:8085" + listView.SelectedItems[0].SubItems[1].Text);
+                var ipAddress = IpAddress.LocalIpAddress != null ? IpAddress.LocalIpAddress : "localhost";
+                MessageBox.Show($"http://{ipAddress}:8085" + listView.SelectedItems[0].SubItems[1].Text);
             }
         }
     }
