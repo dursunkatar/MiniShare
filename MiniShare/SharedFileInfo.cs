@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace MiniShare
         {
             get
             {
-                return Name.Replace(' ', '-').Replace('.', '-');
+                return Utilities.SharedPathFix(Name);
             }
         }
         public byte[] Bytes
