@@ -10,21 +10,16 @@ namespace MiniShare
     {
         public string Name { get; set; }
         public string Path { get; set; }
+        public string SharePath { get; private set; }
 
         public SharedFileInfo(string path)
         {
             var fileInfo = new FileInfo(path);
             Name = fileInfo.Name;
+            SharePath = Utilities.SharedPathFix(Name);
             Path = path;
         }
 
-        public string SharePath
-        {
-            get
-            {
-                return Utilities.SharedPathFix(Name);
-            }
-        }
         public byte[] Bytes
         {
             get
