@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 
 namespace MiniShare
@@ -29,6 +28,11 @@ namespace MiniShare
         {
             listener.Prefixes.Add("http://localhost:8085/");
             listener.Prefixes.Add("http://127.0.0.1:8085/");
+            var localIp = Utilities.LocalIPAddress();
+            if (localIp != null)
+            {
+                listener.Prefixes.Add($"http://{localIp}:8085/");
+            }
             listener.Start();
             getContext();
         }
@@ -100,7 +104,7 @@ namespace MiniShare
                 SharedFileList.Remove(SharedFileList.First(file => file.Path == path));
             }
         }
-
+      
         public void Close()
         {
             listener.Close();
